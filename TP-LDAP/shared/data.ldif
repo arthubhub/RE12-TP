@@ -1,0 +1,42 @@
+# Base DN: root of the directory
+dn: dc=musicschool,dc=fr
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: MusicSchool
+dc: musicschool
+
+# Organizational Unit: people
+dn: ou=people,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: people
+
+# Organizational Unit: classes
+dn: ou=classes,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: classes
+
+# Organizational Unit: roles
+dn: ou=roles,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: roles
+
+# Member: toto
+dn: cn=toto,ou=people,dc=musicschool,dc=fr
+objectClass: inetOrgPerson
+cn: toto
+sn: toto
+mail: toto@musicschool.fr
+
+# Class: violin
+dn: cn=violin,ou=classes,dc=musicschool,dc=fr
+objectClass: groupOfUniqueNames
+cn: violin
+uniqueMember: cn=toto,ou=people,dc=musicschool,dc=fr
+
+# Role: student
+dn: cn=student,ou=roles,dc=musicschool,dc=fr
+objectClass: organizationalRole
+cn: student
+roleOccupant: cn=toto,ou=people,dc=musicschool,dc=fr
+
