@@ -1,0 +1,56 @@
+# Base DN: root of the directory
+dn: dc=musicschool,dc=fr
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: MusicSchool
+dc: musicschool
+
+# Organizational Unit: people
+dn: ou=people,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: people
+
+# Organizational Unit: classes
+dn: ou=classes,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: classes
+
+# Organizational Unit: roles
+dn: ou=roles,dc=musicschool,dc=fr
+objectClass: organizationalUnit
+ou: roles
+
+# Member: toto (avec posixAccount et shadowAccount)
+dn: cn=toto,ou=people,dc=musicschool,dc=fr
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: toto
+sn: toto
+mail: toto@musicschool.fr
+uid: toto
+uidNumber: 10001
+gidNumber: 10000
+homeDirectory: /home/toto
+loginShell: /bin/bash
+userPassword: toto
+
+# PosixGroup: usersMS
+dn: cn=usersMS,ou=people,dc=musicschool,dc=fr
+objectClass: posixGroup
+cn: usersMS
+gidNumber: 10000
+
+# Class: violin
+dn: cn=violin,ou=classes,dc=musicschool,dc=fr
+objectClass: groupOfUniqueNames
+cn: violin
+uniqueMember: cn=toto,ou=people,dc=musicschool,dc=fr
+
+# Role: student
+dn: cn=student,ou=roles,dc=musicschool,dc=fr
+objectClass: organizationalRole
+cn: student
+roleOccupant: cn=toto,ou=people,dc=musicschool,dc=fr
+
