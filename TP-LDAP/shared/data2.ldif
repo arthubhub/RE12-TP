@@ -21,6 +21,25 @@ dn: ou=roles,dc=musicschool,dc=fr
 objectClass: organizationalUnit
 ou: roles
 
+# PosixGroup: usersMS
+dn: cn=usersMS,ou=people,dc=musicschool,dc=fr
+objectClass: posixGroup
+objectClass: groupOfNames # inclusion de membres dans le groupe
+cn: usersMS
+gidNumber: 10000
+member: cn=toto,ou=people,dc=musicschool,dc=fr
+member: cn=titi,ou=people,dc=musicschool,dc=fr
+
+
+# PosixGroup: usersBS
+dn: cn=usersBS,ou=people,dc=musicschool,dc=fr
+objectClass: posixGroup
+objectClass: groupOfNames # inclusion de membres dans le groupe
+cn: usersBS
+gidNumber: 10001
+member: cn=tata,ou=people,dc=musicschool,dc=fr
+
+
 # Member: toto (avec posixAccount et shadowAccount)
 dn: cn=toto,ou=people,dc=musicschool,dc=fr
 objectClass: inetOrgPerson
@@ -35,6 +54,36 @@ gidNumber: 10000
 homeDirectory: /home/toto
 loginShell: /bin/bash
 userPassword: toto
+
+# Member: titi (avec posixAccount et shadowAccount)
+dn: cn=titi,ou=people,dc=musicschool,dc=fr
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: titi
+sn: titi
+mail: titi@musicschool.fr
+uid: titi
+uidNumber: 10002
+gidNumber: 10000
+homeDirectory: /home/titi
+loginShell: /bin/bash
+userPassword: titi
+
+# Member: tata (avec posixAccount et shadowAccount)
+dn: cn=tata,ou=people,dc=musicschool,dc=fr
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+cn: tata
+sn: tata
+mail: tata@musicschool.fr
+uid: tata
+uidNumber: 10003
+gidNumber: 10001
+homeDirectory: /home/tata
+loginShell: /bin/bash
+userPassword: tata
 
 # PosixGroup: usersMS
 dn: cn=usersMS,ou=people,dc=musicschool,dc=fr
